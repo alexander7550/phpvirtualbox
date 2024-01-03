@@ -253,7 +253,7 @@ function getdir($dir, $dirsOnly=false, $recurse=array()) {
 
         		$ext = strtolower(preg_replace('/^.*\./', '', $file));
 
-                if(count($allowed) && !$allowed['.'.$ext]) continue;
+                if(!is_null($allowed) && count($allowed) && !$allowed['.'.$ext]) continue;
 
                 array_push($dirents, file_entry($path));
         	}
